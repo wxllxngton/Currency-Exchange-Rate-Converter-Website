@@ -1,0 +1,58 @@
+{% extends 'bootstrap/base.html'%} {% import "bootstrap/wtf.html" as wtf %}
+
+<!-- Head section -->
+{% block head %} {{ super() }}
+<link
+    rel="icon"
+    href="{{ url_for('static', filename='assets/favicon.ico') }}"
+/>
+<style>
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    .jumbotron {
+        background-color: black;
+        color: white;
+    }
+</style>
+{% endblock %}
+
+<!-- Title section -->
+{% block title %}Exchange Rate Converter{% endblock %}
+
+<!-- Content section -->
+{% block content %}
+<!-- Just an image -->
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img
+            src="{{ url_for('static', filename='assets/favicon.ico') }}"
+            width="30"
+            height="30"
+            alt=""
+        />
+    </a>
+</nav>
+<div class="container-fluid text-center">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 text-left">
+                <h1 class="display-4">
+                    💲💹<br /><span style="color: gold"
+                        >Exchange Rate Converter.</span
+                    >
+                </h1>
+                <hr class="my-4" />
+                {{ wtf.quick_form(form, novalidate=True ) }}
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <img
+                    src="{{ url_for('static', filename='assets/exchange-rate.png') }}"
+                />
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
